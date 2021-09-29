@@ -4,6 +4,7 @@ import { FiEdit3, FiTrash } from 'react-icons/fi';
 import { Container } from './styles';
 import api from '../../services/api';
 
+
 class Food extends Component {
   constructor(props) {
     super(props);
@@ -90,3 +91,4 @@ class Food extends Component {
 };
 
 export default Food;
+
