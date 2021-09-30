@@ -4,7 +4,12 @@ import { FiPlusSquare } from 'react-icons/fi';
 import { Container } from './styles';
 import Logo from '../../assets/logo.svg';
 
-class Header extends Component {
+interface HeaderProps {
+  openModal: () => boolean;
+}
+
+
+class Header extends Component<HeaderProps> {
   render() {
     const { openModal } = this.props;
 
