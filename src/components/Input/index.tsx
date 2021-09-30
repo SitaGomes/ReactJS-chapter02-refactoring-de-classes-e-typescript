@@ -8,14 +8,15 @@ import {
 import { useField } from '@unform/core';
 
 import { Container } from './styles';
-import { FormEvent } from 'react-router/node_modules/@types/react';
+import { InputHTMLAttributes } from 'react-router/node_modules/@types/react';
 
 interface InputProps {
   name: string;
-  icon: string;
 }
 
-const Input = ({ name, icon: Icon, ...rest }: InputProps & FormEvent): JSX.Element => {
+type InputType = InputHTMLAttributes<HTMLInputElement>
+
+const Input = ({ name, ...rest }: InputProps & InputType): JSX.Element => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
