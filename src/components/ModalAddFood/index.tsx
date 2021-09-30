@@ -8,11 +8,13 @@ import { FormHandles } from '@unform/core';
 
 interface ModalAddFoodProps {
   isOpen: boolean;
-  setIsOpen: () => React.SetStateAction<boolean>;
-  handleAddFood: (data: SubmitData) => void;
+  setIsOpen: () => void;
+  handleAddFood: (food: Food) => Promise<void>;
 }
 
-interface SubmitData {
+interface Food {
+  id: number;
+  available: boolean;
   image: string;
   name: string;
   price: number;
@@ -24,7 +26,7 @@ export const ModalAddFood = ({isOpen, setIsOpen, handleAddFood}: ModalAddFoodPro
 
   const formRef = createRef<FormHandles>()
 
-  async function handleSubmit(data: SubmitData) {
+  async function handleSubmit(data: Food) {
     handleAddFood(data);
     setIsOpen();
   }
