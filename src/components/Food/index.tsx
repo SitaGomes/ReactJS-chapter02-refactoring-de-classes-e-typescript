@@ -11,7 +11,7 @@ interface Food {
   image: string;
   id: number
   available: boolean;
-}
+} 
 
 interface FoodProps {
   food: Food;
@@ -21,14 +21,14 @@ interface FoodProps {
 
 export const Food = ({food, handleDelete, handleEditFood}: FoodProps): JSX.Element => {
 
-  const [isAvailable] = useState(food.available)
+  const [isAvailable, setIsAvailable] = useState(food.available)
 
   async function toggleAvailable() {
     await api.put(`/foods/${food.id}`, {
       ...food,
       available: !isAvailable,
     });
-
+    setIsAvailable(!isAvailable);
   }
 
   function setEditingFood() {
