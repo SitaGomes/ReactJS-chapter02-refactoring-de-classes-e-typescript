@@ -16,7 +16,7 @@ interface InputProps {
 
 type InputType = InputHTMLAttributes<HTMLInputElement>
 
-const Input = ({ name, ...rest }: InputProps & InputType): JSX.Element => {
+export const Input = ({ name, ...rest }: InputProps & InputType): JSX.Element => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
@@ -56,4 +56,3 @@ const Input = ({ name, ...rest }: InputProps & InputType): JSX.Element => {
   );
 };
 
-export default Input;
